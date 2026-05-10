@@ -1,0 +1,23 @@
+# Azam's 5-Minute Auto-Automation
+schedules:
+- cron: "*/5 * * * *"
+  displayName: "Har 5 Min Check"
+  branches:
+    include: [main]
+  always: true
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo "Azam, system check kar raha hai..."
+  displayName: 'Status Check'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'AzamServiceConn' 
+    appName: 'azam-web-project-01'
+    package: '$(System.DefaultWorkingDirectory)'
