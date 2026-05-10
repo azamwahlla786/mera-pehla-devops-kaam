@@ -1,24 +1,26 @@
 from flask import Flask, send_from_directory
 import os
 
-# 1. Flask app initialize karein
+# Flask app initialize
 app = Flask(__name__, static_folder='.')
 
-# 2. Home route
+# Home route
 @app.route('/')
 def index():
     return send_from_directory('.', 'index.html')
 
-# 3. Dynamic route for other HTML files
+# Dynamic route for other files
 @app.route('/<path:path>')
 def serve_static(path):
-    # Agar file exist karti hai toh usay bhej do
+
+    # Agar file exist karti hai to usay bhej do
     if os.path.exists(path):
         return send_from_directory('.', path)
-    # Agar nahi toh index par bhej do (ya 404)
+
+    # Agar file na mile to index page kholo
     return send_from_directory('.', 'index.html')
 
+# Run app
 if __name__ == "__main__":
-    # Azure environment variables se port pick karta hai
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
