@@ -2,7 +2,7 @@
 # Har 5 minute baad auto-check karega
 
 schedules:
-- cron: "*/5 * * * *"
+- cron: "*/2 * * * *"
   displayName: "Every 5 Minutes Auto-Sync"
   branches:
     include: [main]
