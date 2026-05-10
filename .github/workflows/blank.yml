@@ -17,4 +17,4 @@ jobs:
 
       - name: Upload Files to Azure
         run: |
-          az storage blob upload-batch --account-name azamstorage786 --auth-mode login -d website -s .
+          az storage blob upload-batch --account-name azamstorage786 --auth-mode key -d website -s .
