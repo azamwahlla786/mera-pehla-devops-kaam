@@ -1,7 +1,9 @@
-# Azam's 5-Minute Auto-Automation
+# Azam's Professional Portfolio Automation
+# Har 5 minute baad auto-check karega
+
 schedules:
 - cron: "*/5 * * * *"
-  displayName: "Har 5 Min Check"
+  displayName: "Every 5 Minutes Auto-Sync"
   branches:
     include: [main]
   always: true
@@ -10,14 +12,15 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo "Azam, system check kar raha hai..."
-  displayName: 'Status Check'
+- checkout: self
 
 - task: AzureWebApp@1
+  displayName: 'Deploy Portfolio to Azure'
   inputs:
-    azureSubscription: 'AzamServiceConn' 
-    appName: 'azam-web-project-01'
+    azureSubscription: 'AzamServiceConn'
+    appType: 'webApp'
+    appName: 'azam-portfolio-web' # <-- Agar portal par naam kuch aur hai toh bas ye badal dena
     package: '$(System.DefaultWorkingDirectory)'
