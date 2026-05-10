@@ -1,19 +1,19 @@
-name: Python Automation Test
+name: Azam Azure Automation
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Button dabane par chalega
 
 jobs:
-  run-python:
+  deploy-to-azure:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Code Download
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Azure Login
+        uses: azure/login@v2
         with:
-          python-version: '3.10'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Run my script
-        run: python hello.py
+      - name: Check Azure Connection
+        run: az account show
