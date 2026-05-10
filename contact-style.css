@@ -1,0 +1,79 @@
+body {
+    background-color: #081b29;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* Glassmorphism Card Effect */
+.contact-form-card {
+    background: rgba(17, 46, 66, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect like glass */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Input Styling */
+.custom-input {
+    background: rgba(8, 27, 41, 0.8) !important;
+    border: 2px solid #112e42 !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #00abf0 !important;
+    box-shadow: 0 0 10px rgba(0, 171, 240, 0.5);
+    outline: none;
+}
+
+/* Icon Box Design */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #00abf0;
+    color: #081b29;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+    box-shadow: 0 0 15px #00abf0;
+}
+
+/* VIP Button */
+.btn-vip {
+    background: #00abf0;
+    color: #081b29;
+    border: none;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: 0.4s ease;
+}
+
+.btn-vip:hover {
+    background: #fff;
+    color: #00abf0;
+    box-shadow: 0 0 20px #00abf0;
+    transform: scale(1.05);
+}
+
+/* Text Colors */
+.text-info {
+    color: #00abf0 !important;
+}
+
+.text-muted {
+    color: #88a1b5 !important;
+}
+
+/* Animation on Info items */
+.info-item {
+    transition: 0.3s;
+}
+
+.info-item:hover {
+    transform: translateX(10px);
+}
