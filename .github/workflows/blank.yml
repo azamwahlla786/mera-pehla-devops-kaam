@@ -1,10 +1,10 @@
-name: Azam Azure Automation
+name: Azam Project Upload
 
 on:
-  workflow_dispatch: # Button dabane par chalega
+  workflow_dispatch:
 
 jobs:
-  deploy-to-azure:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Code Download
@@ -15,5 +15,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Check Azure Connection
-        run: az account show
+      - name: Upload Files to Azure
+        run: |
+          az storage blob upload-batch --account-name azamstorage786 --auth-mode login -d website -s .
